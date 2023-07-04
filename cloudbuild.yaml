@@ -4,21 +4,21 @@ steps:
     args:
       - 'build'
       - '-t'
-      - 'gcr.io/$PROJECT_ID/gcpdevops'  # Replace [PROJECT_ID] and [IMAGE_NAME] with your values
+      - 'gcr.io/gcp-project-391816/gcpdevops:latest'  # Replace [PROJECT_ID] and [IMAGE_NAME] with your values
       - '.'
 
   # Step 2: Push the Docker image to Google Container Registry
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
-      - 'gcr.io/$PROJECT_ID/gcpdevops'  # Replace [PROJECT_ID] and [IMAGE_NAME] with your values
+      - 'gcr.io/gcp-project-391816/gcpdevops:latest'  # Replace [PROJECT_ID] and [IMAGE_NAME] with your values
 
   # Step 3: Deploying the Docker image to GKE
   - name: 'gcr.io/cloud-builders/gcpdeploy'
     args:
       - run
       - --filename=gke.yaml
-      - --image=gcr.io/$PROJECT_ID/gcpdevops
+      - --image=gcr.io/gcp-project-391816/gcpdevops:latest
       - --location=us-central1-c
       - --cluster=gcp-devops-project
       - --namespace=gcp-devops-prod
