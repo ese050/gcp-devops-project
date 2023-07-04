@@ -12,3 +12,28 @@ steps:
     args:
       - 'push'
       - 'gcr.io/$PROJECT_ID/gcpdevops:latest'  # Replace [PROJECT_ID] and [IMAGE_NAME] with your values
+  # # Step 3: Deploying the Docker image to App Engine
+  # - name: 'gcr.io/cloud-builders/gcloud'
+  #   args:
+  #     - 'run'
+  #     - 'deploy'
+  #     - 'gcp-cloud-run-service'
+  #     - '--image'
+  #     - 'gcr.io/$PROJECT_ID/gcpdevops:latest'
+  #     - '--region'
+  #     - 'us-central1'
+
+  # Step 3: Deploying the Docker image to GKE
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - 'container'
+      - 'clusters'
+      - 'get-credentials'
+      - 'gcp-devops-project'
+      - '--region'
+      - 'us-central1'
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args:
+      - 'apply'
+      - '-f'
+      - 'gke.yaml'
