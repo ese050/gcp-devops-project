@@ -28,7 +28,6 @@ steps:
     args:
       - 'container'
       - 'clusters'
-      - 'get-credentials'
       - 'gcp-devops-project'
       - '--region'
       - 'us-central1'
