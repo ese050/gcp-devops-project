@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: gcp-devops-gke
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: gcp
@@ -13,14 +14,9 @@ spec:
     spec:
       containers:
       - name: gcp-devops-gke
-        image: gcr.io/gcp-project-391816/gcpdevops:latest
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
+        image: gcr.io/GCP-Project/test-gcpdevops:latest
         ports:
         - containerPort: 5000
         env:
-          - name:  Port
-            port:  5000
-
+          - name: PORT
+            value: "5000"
