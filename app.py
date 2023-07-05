@@ -6,7 +6,7 @@ app = Flask(__name__)
 def hello_world():
     return '''
     <div style="text-align: center;">
-        <h1 style="text-transform: uppercase; font-weight: bold;">Hello, From Ese</h1>
+        <h1 style="text-transform: uppercase; font-weight: bold;">Hello, From Ese Development</h1>
         <p>Welcome to my DevOps Flask app</p>
     </div>
     '''
