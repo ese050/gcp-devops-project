@@ -29,7 +29,7 @@ metadata:
   labels:
     app.kubernetes.io/managed-by: gcp-cloud-build-deploy
   name: gcp-devops-gke-service
-  namespace: gcp-devops-prod
+  namespace: gcp-devops-dev
 spec:
   ports:
   - port: 80
